@@ -6,13 +6,40 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex">
+      <%= link_to "Teste NetShow.me", root_path, class: "navbar-brand" %>
+      <button class="btn btn-primary ml-auto p-2">
+        <% if !user_signed_in? %>
+          <%= link_to "Entrar", user_session_path, class: "text-white text-decoration-none" %>
+        <% else %>
+          <%= link_to "Sair", destroy_user_session_path, class: "text-white text-decoration-none", :method => :delete %>
+        <% end %>
+      </button>
+    </nav>
 
+    <% if notice || alert %>
+      <div class="container alert alert-warning w-25 mt-5" role="alert">
+        <%= notice %>
+        <%= alert %>
+      </div>
+    <% end %>
+    
     <%= yield %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag '/assets/main', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+
   </body>
 </html>
