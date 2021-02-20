@@ -18,21 +18,21 @@
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex">
       <%= link_to "Teste NetShow.me", root_path, class: "navbar-brand" %>
-      <button class="btn btn-primary ml-auto p-2">
-        <% if !user_signed_in? %>
-          <%= link_to "Entrar", user_session_path, class: "text-white text-decoration-none" %>
-        <% else %>
-          <%= link_to "Sair", destroy_user_session_path, class: "text-white text-decoration-none", :method => :delete %>
+      <div class="ml-auto">
+        <% if user_signed_in? %>
+          <button class="btn btn-outline-primary">
+            <%= link_to "Meus Vídeos", videos_path, class: "text-white text-decoration-none" %>
+          </button>
         <% end %>
-      </button>
-    </nav>
-
-    <% if notice || alert %>
-      <div class="container alert alert-warning w-25 mt-5" role="alert">
-        <%= notice %>
-        <%= alert %>
+        <button class="btn btn-primary">
+          <% if !user_signed_in? %>
+            <%= link_to "Entrar", user_session_path, class: "text-white text-decoration-none" %>
+          <% else %>
+            <%= link_to "Sair", destroy_user_session_path, class: "text-white text-decoration-none", :method => :delete %>
+          <% end %>
+        </button>
       </div>
-    <% end %>
+    </nav>
     
     <%= yield %>
 

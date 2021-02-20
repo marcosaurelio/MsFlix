@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @videos = Video.all
+    @videos = Video.all.sort_by(&:id)
   end
 
   def play
