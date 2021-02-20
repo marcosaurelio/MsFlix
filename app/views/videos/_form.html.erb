@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-floating mb-3">
+    <%= form.label "Nome", for: "nameInput" %>
+    <%= form.text_field :name, class: "form-control", id: "nameInput", placeholder: "Nome do Vídeo" %>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+  <div class="form-floating mb-3">
+    <%= form.label "URL", for: "urlInput" %>
+    <%= form.text_field :url, class: "form-control", id: "urlInput", placeholder: "URL do Vídeo" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-floating mb-3">
+    <%= button_tag "Salvar", type: 'submit', class: "btn btn-primary" %>
+    <%= link_to "Cancelar", videos_path, class: "btn btn-danger", "data-toggle": "tooltip", title: "Voltar" %>
   </div>
+
 <% end %>

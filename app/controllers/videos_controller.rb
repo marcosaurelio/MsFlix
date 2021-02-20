@@ -5,7 +5,7 @@ class VideosController < ApplicationController
 
   # GET /videos or /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.where(user: current_user)
   end
 
   # GET /videos/1 or /videos/1.json
@@ -23,7 +23,7 @@ class VideosController < ApplicationController
 
   # POST /videos or /videos.json
   def create
-    @video = Video.new(video_params)
+    @video = Video.new(name: video_params[:name], url: video_params[:url], user: current_user)
 
     respond_to do |format|
       if @video.save
