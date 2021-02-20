@@ -1,7 +1,12 @@
 class VideosController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[ updateview ]
 
   before_action :set_video, only: %i[ show edit update destroy ]
+
+  def updateview
+    videoview = Video.find(params[:id])
+    videoview.update_quantity
+  end
 
   # GET /videos or /videos.json
   def index
@@ -27,7 +32,7 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: "Video was successfully created." }
+        format.html { redirect_to videos_path }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +45,7 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: "Video was successfully updated." }
+        format.html { redirect_to videos_path }
         format.json { render :show, status: :ok, location: @video }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -8,14 +8,14 @@
   <div class="container">
     <div class="row">
       <div class="card-deck">
-        <% @videos.each do |v| %>
+        <% @videos.each do |video| %>
           <div class="col-lg-4 mb-5">
-            <%= link_to play_path(v), class: "text-dark text-decoration-none" do %>
+            <%= link_to play_path(video), class: "text-dark text-decoration-none" do %>
             <div class="card">
-              <div class="card-header h4"><%= v.name %></div>
-                <img class="card-img-top" src="https://picsum.photos/id/237/291/200" alt="<%= v.name %>">
+              <div class="card-header h4"><%= video.name %></div>
+                <img class="card-img-top" src="https://picsum.photos/id/237/291/200" alt="<%= video.name %>">
               <div class="card-body">
-                <h5 class="card-title">350 Views</h5>
+                <h5 class="card-title h6"><%= video.quantity > 0 ?  "#{video.quantity} Visualizações" : 'Seja o primeiro a assistir' %></h5>
               </div>
             </div>
             <% end %>
