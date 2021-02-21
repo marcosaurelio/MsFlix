@@ -17,7 +17,7 @@
           <td><%= video.quantity %></td>
           <td><%= video.url %></td>
           <td><%= link_to 'Visualizar', play_path(video) %></td>
-          <td><%= link_to 'Edita', edit_video_path(video) %></td>
+          <td><%= link_to 'Editar', edit_video_path(video) %></td>
           <td><%= link_to 'Apagar', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

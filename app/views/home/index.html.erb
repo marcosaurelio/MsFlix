@@ -13,7 +13,7 @@
             <%= link_to play_path(video), class: "text-dark text-decoration-none" do %>
             <div class="card">
               <div class="card-header h4"><%= video.name %></div>
-                <img class="card-img-top" src="https://picsum.photos/id/237/291/200" alt="<%= video.name %>">
+              <%= image_tag video.cover, class:"card-body", alt: video.name unless !video.cover.attached? %>
               <div class="card-body">
                 <h5 class="card-title h6"><%= video.quantity > 0 ?  "#{video.quantity} Visualizações" : 'Seja o primeiro a assistir' %></h5>
               </div>

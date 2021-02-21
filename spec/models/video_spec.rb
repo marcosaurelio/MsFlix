@@ -33,6 +33,16 @@ describe Video do
     expect(video).to_not be_valid
   end
 
+  it "is valid if user exist" do
+    video = Video.new(name: 'Video 1', url: "http://www.teste-netshowme/video1.m3u8", user: user)
+    expect(video).to be_valid
+  end
+
+  it "is not valid if user not exist" do
+    video = Video.new(name: 'Video 1', url: "http://www.teste-netshowme/video1.m3u8", user: nil)
+    expect(video).to_not be_valid
+  end
+
 end
 
 
