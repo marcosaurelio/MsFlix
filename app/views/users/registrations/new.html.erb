@@ -2,7 +2,7 @@
   <%= form_for(resource, class: "form-signin", as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
 
-    <img class="mb-4" src="/assets/login.png" alt="" width="72" height="72">
+    <img class="mb-4" src="/assets/login.png" alt="login" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Entre com email e senha</h1>
 
     <%= f.text_field :name, class: "form-control mb-3", placeholder: "Nome", required: true, autofocus: true, autocomplete: "name" %>
