@@ -17,7 +17,7 @@
 
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex">
-      <%= link_to "Teste NetShow.me", root_path, class: "navbar-brand" %>
+      <%= link_to "MsFlix", root_path, class: "navbar-brand text-title" %>
       <div class="ml-auto">
         <% if user_signed_in? %>
           <button class="btn btn-outline-primary">
@@ -36,8 +36,8 @@
     
     <%= yield %>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag '/assets/main', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag '/assets/main' %>
 
     <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
 

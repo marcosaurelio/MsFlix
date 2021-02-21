@@ -3,3 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.card-video {
+  width: 20em;
+  height: 30em;
+}
+
+.text-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: red !important;
+}
