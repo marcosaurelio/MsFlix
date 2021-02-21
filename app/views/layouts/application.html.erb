@@ -37,7 +37,7 @@
     <%= yield %>
 
     <%= javascript_pack_tag 'application' %>
-    <%= javascript_include_tag '/assets/main' %>
+    <%= javascript_include_tag '/assets/main', 'data-turbolinks-track': 'reload' %>
 
     <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
 
